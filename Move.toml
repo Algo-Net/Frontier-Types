@@ -1,0 +1,6 @@
+[package]
+name = "frontier_types"
+edition = "2024"
+
+[environments]
+testnet_stillness = "4c78adac"
