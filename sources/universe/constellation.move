@@ -70,7 +70,7 @@ public fun set_region_id(constellation: &mut Constellation, value: u32) {
 }
 
 public fun set_center(constellation: &mut Constellation, value: &Position) {
-    let mut position = constellation.center_mut();
+    let position = constellation.center_mut();
     position.set_x(value.x());
     position.set_y(value.y());
     position.set_z(value.z());
