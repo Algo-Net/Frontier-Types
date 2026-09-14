@@ -31,7 +31,7 @@ public fun define(
     }
 }
 
-public fun destroy(solar_system: StarSystem) {
+public fun destroy(star_system: StarSystem) {
     let StarSystem {
         id: _,
         name: _,
@@ -39,68 +39,68 @@ public fun destroy(solar_system: StarSystem) {
         region_id: _,
         center,
         properties: _,
-    } = solar_system;
+    } = star_system;
 
     center.destroy();
 }
 
 // Getters
-public fun id(solar_system: &StarSystem): u32 {
-    solar_system.id
+public fun id(star_system: &StarSystem): u32 {
+    star_system.id
 }
 
-public fun name(solar_system: &StarSystem): String {
-    solar_system.name
+public fun name(star_system: &StarSystem): String {
+    star_system.name
 }
 
-public fun constellation_id(solar_system: &StarSystem): u32 {
-    solar_system.constellation_id
+public fun constellation_id(star_system: &StarSystem): u32 {
+    star_system.constellation_id
 }
 
-public fun region_id(solar_system: &StarSystem): u32 {
-    solar_system.region_id
+public fun region_id(star_system: &StarSystem): u32 {
+    star_system.region_id
 }
 
-public fun center(solar_system: &StarSystem): &Position {
-    &solar_system.center
+public fun center(star_system: &StarSystem): &Position {
+    &star_system.center
 }
 
-public fun center_mut(solar_system: &mut StarSystem): &mut Position {
-    &mut solar_system.center
+public fun center_mut(star_system: &mut StarSystem): &mut Position {
+    &mut star_system.center
 }
 
-public fun property(solar_system: &StarSystem, key: &String): &vector<u8> {
-    solar_system.properties.get(key)
+public fun property(star_system: &StarSystem, key: &String): &vector<u8> {
+    star_system.properties.get(key)
 }
 
-public fun property_mut(solar_system: &mut StarSystem, key: &String): &mut vector<u8> {
-    solar_system.properties.get_mut(key)
+public fun property_mut(star_system: &mut StarSystem, key: &String): &mut vector<u8> {
+    star_system.properties.get_mut(key)
 }
 
 // Setters
-public fun set_name(solar_system: &mut StarSystem, value: String) {
-    solar_system.name = value;
+public fun set_name(star_system: &mut StarSystem, value: String) {
+    star_system.name = value;
 }
 
-public fun set_constellation_id(solar_system: &mut StarSystem, value: u32) {
-    solar_system.constellation_id = value
+public fun set_constellation_id(star_system: &mut StarSystem, value: u32) {
+    star_system.constellation_id = value
 }
 
-public fun set_region_id(solar_system: &mut StarSystem, value: u32) {
-    solar_system.region_id = value
+public fun set_region_id(star_system: &mut StarSystem, value: u32) {
+    star_system.region_id = value
 }
 
-public fun set_center(solar_system: &mut StarSystem, value: &Position) {
-    let position = solar_system.center_mut();
+public fun set_center(star_system: &mut StarSystem, value: &Position) {
+    let position = star_system.center_mut();
     position.set_x(value.x());
     position.set_y(value.y());
     position.set_z(value.z());
 }
 
-public fun set_property(solar_system: &mut StarSystem, key: String, value: vector<u8>) {
-    if (solar_system.properties.contains(&key)) {
-        solar_system.properties.remove(&key);
+public fun set_property(star_system: &mut StarSystem, key: String, value: vector<u8>) {
+    if (star_system.properties.contains(&key)) {
+        star_system.properties.remove(&key);
     };
 
-    solar_system.properties.insert(key, value);
+    star_system.properties.insert(key, value);
 }
